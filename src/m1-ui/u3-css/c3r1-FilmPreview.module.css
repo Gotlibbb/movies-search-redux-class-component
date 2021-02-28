@@ -1,0 +1,57 @@
+
+.filmPreview:hover {
+    background-color: #333333;
+
+}
+
+.filmPreview:active {
+    color: black;
+}
+
+
+@media screen and (min-width: 700px) {
+    .filmPreview img {
+        width: 100%;
+        padding-top: 5px;
+
+    }
+
+    .filmPreview {
+        width: 400px;
+        padding-bottom: 25px;
+        border-top: solid 5px #7780a0;
+        font-size: 20px;
+        text-align: center;
+
+    }
+    .Title {
+         color: #d25555;
+         font-size: 35px;
+         padding: 15px 15px;
+         font-weight: bold;
+     }
+
+}
+
+@media screen and (max-width: 700px) {
+    .filmPreview img {
+        width: 50%;
+        padding-top: 5px;
+
+    }
+
+    .filmPreview {
+        padding-bottom: 25px;
+        border-top: solid 5px #7780a0;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+
+    }
+    .Title {
+        color: #d25555;
+        font-size: 25px;
+        padding: 15px 15px;
+        font-weight: bold;
+    }
+}
