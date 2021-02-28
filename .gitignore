@@ -10,6 +10,8 @@
 
 # production
 /build
+/.idea
+/.storybook
 
 # misc
 .DS_Store
