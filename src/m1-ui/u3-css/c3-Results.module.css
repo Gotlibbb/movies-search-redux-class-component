@@ -3,11 +3,12 @@
     flex-direction: column;
     align-items: center;
     padding-top: 35px;
+    width: 100%;
 
 }
 
 
-.resultsBlock {
+.resultsContainer__resultsBlock {
     align-items: center;
     padding-top: 40px;
     display: flex;

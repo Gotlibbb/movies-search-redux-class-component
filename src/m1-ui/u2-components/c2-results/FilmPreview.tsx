@@ -6,11 +6,10 @@ import {FilmPreviewType} from "../../../m2-bll/b1-reducers/r1-searchResultsReduc
 class FilmPreview extends React.Component<FilmPreviewPropsType> {
     render() {
 
-
-        return <div className={style.filmPreview}
+        return <div className={style.filmPreviewBlock}
                     onClick={() => this.props.viewFilmHandler(this.props.filmPreview.imdbID)}>
-            <div className={style.Title}>{this.props.filmPreview.Title}</div>
-            <img src={this.props.filmPreview.Poster} alt={"poster"}/>
+            <div className={style.filmPreviewBlock__title}>{this.props.filmPreview.Title}</div>
+            <img className={style.filmPreviewBlock__img} src={this.props.filmPreview.Poster} alt={"poster"}/>
             <div className={style.Year}>Year: {this.props.filmPreview.Year}</div>
             <div className={style.Type}>Type: {this.props.filmPreview.Type}</div>
         </div>

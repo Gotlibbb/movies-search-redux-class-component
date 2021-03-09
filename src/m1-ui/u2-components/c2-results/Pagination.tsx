@@ -33,15 +33,21 @@ class Pagination extends React.Component<PaginationPropsType> {
             let pageHandler = this.props.currentPage
 
             return <div
-                className={style.toggleBlock}
+                className={style.compPaginBlock}
                 style={this.props.onlySwitch ? {justifyContent: "center"} : {}}
             >
                 <div
-                    className={style.changePage}
+                    className={style.compPaginBlock__changePageBlock}
                     hidden={this.props.onlySwitch}
                 >
-                    <div hidden={this.props.onlySwitch}>Change page:</div>
-                    <input hidden={this.props.onlySwitch} type="number" value={this.state.inputPage}
+                <span className={style.compPaginBlock__changePageBlock__span}
+                      hidden={this.props.onlySwitch}>
+                    Change page:
+                </span>
+                    <input type="number"
+                           hidden={this.props.onlySwitch}
+                           className={style.compPaginBlock__changePageBlock__input}
+                           value={this.state.inputPage}
                            onChange={(e) => {
                                this.setState({inputPage: e.currentTarget.value})
                            }}
@@ -57,10 +63,9 @@ class Pagination extends React.Component<PaginationPropsType> {
                            }}
                     />
 
-                    <button hidden={this.props.onlySwitch}
+                    <button className={style.compPaginBlock__changePageBlock__button}
+                            hidden={this.props.onlySwitch}
                             onClick={() => {
-                                // props.setCurrentPage(Number(inputPage))
-                                // props.searchingFilm(inputPage)
                                 pushUrl(this.state.inputPage)
                             }}
                             disabled={errorInput}
@@ -69,18 +74,23 @@ class Pagination extends React.Component<PaginationPropsType> {
                 </div>
 
                 <div
-                    className={style.pageToggle}
-
+                    className={style.compPaginBlock__toggleBlock}
                 >
-                    {this.props.currentPage !== 1 &&
-                    <button onClick={() => {
-                        this.props.onlySwitch && window.scrollTo(0, 300)
-                        pushUrl(String(pageHandler -= 1))
+
+                    <button className={style.compPaginBlock__toggleBlock__button}
+                            disabled={this.props.currentPage === 1}
+                            onClick={() => {
+                                this.props.onlySwitch && window.scrollTo(0, 300)
+                                pushUrl(String(pageHandler -= 1))
 
 
-                    }}>⇐...prev </button>}
-                    <div className={style.currentPage}> {this.props.currentPage} </div>
+                            }}>⇐...prev
+                    </button>
+                    <div className={style.compPaginBlock__toggleBlock__currentPage}>
+                        {this.props.currentPage}
+                    </div>
                     <button
+                        className={style.compPaginBlock__toggleBlock__button}
                         disabled={errorButton}
                         onClick={() => {
                             this.props.onlySwitch && window.scrollTo(0, 300)
@@ -91,21 +101,23 @@ class Pagination extends React.Component<PaginationPropsType> {
                     </button>
                 </div>
 
-                <div
-                    className={style.totalPage}
+                <span
+                    className={style.compPaginBlock__totalPage}
                     hidden={this.props.onlySwitch}
-                >Total pages: {pages.length - 1}</div>
+                >Total pages: {pages.length - 1}</span>
             </div>
 
 
         }
 
 
-        return <div className={style.pagesBlock}>
+        return <div className={style.paginBlock}>
             {pages.map(p => {
-                return <span hidden={p === 0}
+                return <span hidden={p === 0 || pages.length === 2}
                              key={p}
-                             className={this.props.currentPage === p ? style.checked : " "}
+                             className={this.props.currentPage === p ?
+                                 style.paginBlock__span__checked + " " + style.paginBlock__span :
+                                 style.paginBlock__span}
                              onClick={
                                  () => {
 

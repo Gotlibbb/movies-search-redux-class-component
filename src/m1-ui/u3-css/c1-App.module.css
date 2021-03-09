@@ -1,7 +1,5 @@
-html{
-  background-color: #2b343e;
-}
-.app {
+
+.appContainer {
   display: flex;
   flex-direction: column;
   align-items: center;

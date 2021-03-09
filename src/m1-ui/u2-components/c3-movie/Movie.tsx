@@ -14,15 +14,18 @@ class Movie extends React.Component<MoviePropsType> {
         if (!this.props.movie.Title) return <Preloader/>
 
 
-        return <div className={style.moviePage}>
+        return <div className={style.moviePageContainer}>
 
-            <span onClick={this.props.backToSearchHandler}>⇦ Back to search</span>
-            <div className={style.Title}>{this.props.movie.Title}</div>
-            <div className={style.movieContainer}>
+            <span className={style.moviePageContainer__backToSearch} onClick={this.props.backToSearchHandler}>⇦ Back to search</span>
 
-                <img src={this.props.movie.Poster} alt={"poster"}/>
+            <div className={style.moviePageContainer__title}>{this.props.movie.Title}</div>
 
-                <div className={style.movieInfo}>
+            <div className={style.moviePageContainer__movieBlock}>
+
+                <img className={style.moviePageContainer__movieBlock__img} src={this.props.movie.Poster}
+                     alt={"poster"}/>
+
+                <div className={style.moviePageContainer__movieBlock__movieInfo}>
 
 
                     <div><u><b>Production</b></u>: {this.props.movie.Production}</div>
@@ -42,7 +45,6 @@ class Movie extends React.Component<MoviePropsType> {
             </div>
 
         </div>
-
     }
 }
 

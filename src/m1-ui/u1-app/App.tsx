@@ -7,7 +7,7 @@ import SearchContainer from "../u2-components/c1-search/SearchContainer";
 class App extends React.Component {
 
   render() {
-    return <div className={style.app}>
+    return <div className={style.appContainer}>
 
       <SearchContainer/>
       <Routes/>

@@ -24,7 +24,7 @@ class Results extends React.Component<ResultsPropsType> {
 
             />
             {this.props.preloader ? <Preloader/> :
-                <div className={style.resultsBlock}>
+                <div className={style.resultsContainer__resultsBlock}>
                     {this.props.searchResults.map((el) => {
                             let obj: FilmPreviewType = {
                                 imdbID: el.imdbID,
